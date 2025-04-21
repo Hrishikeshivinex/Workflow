@@ -1,0 +1,61 @@
+{
+  "inputs": {
+    "question": "total sales North"
+  },
+  "workflow": {
+    "nodes": [
+      {
+        "id": "1",
+        "type": "Input",
+        "data": {
+          "key": "question"
+        },
+        "inputs": [],
+        "outputs": ["2"]
+      },
+      {
+        "id": "2",
+        "type": "LLM",
+        "data": {
+          "model": "openai",
+          "api_key": "your-api-key",
+          "prompt": "Generate a SQL query for: {question}",
+          "output_format": "sql"
+        },
+        "inputs": ["1"],
+        "outputs": ["3"]
+      },
+      {
+        "id": "3",
+        "type": "SQLExecutor",
+        "data": {
+          "db_host": "localhost",
+          "db_user": "root",
+          "db_password": "rootpass",
+          "db_name": "mydb",
+          "db_port": 3306,
+          "return_format": "json"
+        },
+        "inputs": ["2"],
+        "outputs": ["4"]
+      },
+      {
+        "id": "4",
+        "type": "GraphBuilder",
+        "data": {
+          "x_axis": "product_name",
+          "y_axis": "total_sales",
+          "graph_type": "bar",
+          "title": "Sales by Product in North Region"
+        },
+        "inputs": ["3"],
+        "outputs": []
+      }
+    ],
+    "edges": [
+      { "source": "1", "target": "2" },
+      { "source": "2", "target": "3" },
+      { "source": "3", "target": "4" }
+    ]
+  }
+} 
