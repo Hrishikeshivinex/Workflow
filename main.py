@@ -10,7 +10,7 @@ from datetime import datetime
 from flow.flow_config import FlowConfig
 from utils.logger import setup_logger, log_node_execution
 
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain_mistralai import ChatMistralAI
 from langchain.schema import AIMessage, HumanMessage
 
@@ -64,15 +64,20 @@ def load_workflow(workflow_id: str):
 async def stream_llm_response(prompt: str, model: str, api_key: str) -> AsyncGenerator[str, None]:
     try:
         if model == "openai":
-            llm = ChatOpenAI(api_key=api_key, streaming=True, temperature=0.7)
-        elif model == "mistral":
-            llm = ChatMistralAI(api_key=api_key, streaming=True, temperature=0.7)
+            llm = ChatOpenAI(
+                api_key=api_key,
+                streaming=True,
+                temperature=0.7,
+                model="gpt-3.5-turbo"
+            )
         else:
             yield "[Unsupported model]"
             return
 
         async for chunk in llm.astream([HumanMessage(content=prompt)]):
-            yield chunk.content
+            if chunk.content:
+                yield chunk.content
+                
     except Exception as e:
         yield f"[LLM Error: {str(e)}]"
 
@@ -80,8 +85,43 @@ async def stream_llm_response(prompt: str, model: str, api_key: str) -> AsyncGen
 @app.post("/execute/{workflow_id}")
 async def execute_workflow_endpoint(workflow_id: str, request_data: WorkflowRequest):
     try:
-        result = await execute_workflow(workflow_id, request_data)
-        return {"status": "success", "data": result}
+        # Get the last node's ID (LLM node)
+        last_node_id = request_data.workflow["nodes"][-1]["id"]
+        
+        # Initialize flow with the workflow configuration
+        flow = FlowConfig(request_data.workflow)
+        
+        # Get LLM node configuration
+        llm_node = next(node for node in request_data.workflow["nodes"] if node["id"] == last_node_id)
+        
+        # Get the prompt by executing up to the LLM node
+        node_outputs = {}
+        for node in request_data.workflow["nodes"]:
+            if node["id"] == last_node_id:
+                break
+            if node["type"] == "Input":
+                node_outputs[node["id"]] = request_data.inputs.get(node["data"].get("key"), None)
+            elif node["type"] == "PromptNode":
+                template = node["data"].get("template")
+                input_value = node_outputs[node["inputs"][0]]
+                if isinstance(input_value, dict):
+                    node_outputs[node["id"]] = template.format(**input_value)
+                else:
+                    node_outputs[node["id"]] = template.format(input=input_value)
+        
+        # Get the final prompt
+        prompt = node_outputs[llm_node["inputs"][0]]
+        
+        # Stream the LLM response
+        return StreamingResponse(
+            stream_llm_response(
+                prompt=prompt,
+                model=llm_node["data"]["model"],
+                api_key=llm_node["data"]["api_key"]
+            ),
+            media_type="text/event-stream"
+        )
+        
     except Exception as e:
         logger.error(f"Error in workflow endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))

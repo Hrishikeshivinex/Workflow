@@ -17,28 +17,9 @@ class LLMNode(BaseNode):
             masked_key = f"...{api_key[-4:]}" if api_key else "None"
             logger.debug(f"Using API key ending in: {masked_key}")
             
-            # Prepare prompt
-            prompt = f"""
-            Generate a SQL query for: {input_data}
-            
-            Table structure:
-            CREATE TABLE orders (
-                order_id INT PRIMARY KEY AUTO_INCREMENT,
-                region VARCHAR(50),
-                sales DECIMAL(10,2),
-                order_date DATE,
-                product_name VARCHAR(100),
-                customer_name VARCHAR(100)
-            );
-            
-            Requirements:
-            1. Return data in a format suitable for visualization
-            2. For region-specific queries, use WHERE LOWER(region) = LOWER('<region>')
-            3. Include relevant grouping and aggregations
-            4. Return only the SQL query, no explanations
-            """
-            
-            logger.debug(f"Prepared prompt: {prompt}")
+            # Use the input directly as the prompt
+            prompt = input_data
+            logger.debug(f"Using prompt: {prompt}")
             
             # Call OpenAI API with async client
             logger.debug("Calling OpenAI API...")
@@ -49,11 +30,11 @@ class LLMNode(BaseNode):
                 ]
             )
             
-            # Extract and log SQL query
-            sql_query = response.choices[0].message.content.strip()
-            logger.debug(f"Generated SQL query: {sql_query}")
+            # Extract and log response
+            result = response.choices[0].message.content.strip()
+            logger.debug(f"Generated response: {result}")
             
-            return sql_query
+            return result
             
         except Exception as e:
             logger.error(f"Error in LLM processing: {str(e)}")
