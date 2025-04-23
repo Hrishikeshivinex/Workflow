@@ -1,0 +1,60 @@
+{
+    "inputs": {
+      "question": "What is the capital of France?"
+    },
+    "workflow": {
+      "nodes": [
+        {
+          "id": "trigger1",
+          "type": "TimeTrigger",
+          "data": {
+            "interval_minutes": 1
+          },
+          "inputs": [],
+          "outputs": ["input1"]
+        },
+        {
+          "id": "input1",
+          "type": "Input",
+          "data": {
+            "key": "question"
+          },
+          "inputs": ["trigger1"],
+          "outputs": ["prompt1"]
+        },
+        {
+          "id": "prompt1",
+          "type": "PromptNode",
+          "data": {
+            "template": "Answer this question: {input}"
+          },
+          "inputs": ["input1"],
+          "outputs": ["llm1"]
+        },
+        {
+          "id": "llm1",
+          "type": "LLM",
+          "data": {
+            "model": "openai",
+            "api_key": "your-api-key"
+          },
+          "inputs": ["prompt1"],
+          "outputs": []
+        }
+      ],
+      "edges": [
+        {
+          "source": "trigger1",
+          "target": "input1"
+        },
+        {
+          "source": "input1",
+          "target": "prompt1"
+        },
+        {
+          "source": "prompt1",
+          "target": "llm1"
+        }
+      ]
+    }
+  }
