@@ -60,6 +60,18 @@ def load_workflow(workflow_id: str):
         raise HTTPException(status_code=404, detail="Workflow not found")
     return saved_workflows[workflow_id]
 
+# ==== Endpoint: Delete Workflow ====
+@app.delete("/workflow/{workflow_id}", response_model=Dict[str, bool])
+def delete_workflow(workflow_id: str):
+    if workflow_id not in saved_workflows:
+        raise HTTPException(status_code=404, detail="Workflow not found")
+    
+    # Remove the workflow from the dictionary
+    del saved_workflows[workflow_id]
+    logger.info(f"Workflow deleted: {workflow_id}")
+    
+    return {"success": True}
+
 # ==== Helper: Streaming Generator ====
 async def stream_llm_response(prompt: str, model: str, api_key: str) -> AsyncGenerator[str, None]:
     try:
