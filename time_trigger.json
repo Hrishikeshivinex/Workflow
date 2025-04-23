@@ -36,7 +36,7 @@
           "type": "LLM",
           "data": {
             "model": "openai",
-            "api_key": "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"
+            "api_key": "your-api-key"
           },
           "inputs": ["prompt1"],
           "outputs": []
