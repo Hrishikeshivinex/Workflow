@@ -5,6 +5,7 @@ from nodes.llm_node import LLMNode
 from nodes.sql_executor_node import SQLExecutorNode
 from nodes.graph_builder_node import GraphBuilderNode
 from nodes.prompt_node import PromptNode
+from nodes.time_trigger_node import TimeTriggerNode
 import logging
 
 logger = logging.getLogger("workflow.FlowConfig")
@@ -15,7 +16,8 @@ class FlowConfig:
         'LLM': LLMNode,
         'SQLExecutor': SQLExecutorNode,
         'GraphBuilder': GraphBuilderNode,
-        'PromptNode': PromptNode
+        'PromptNode': PromptNode,
+        'TimeTrigger': TimeTriggerNode
     }
     
     def __init__(self, workflow_config: Dict):
