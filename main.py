@@ -46,17 +46,34 @@ class WorkflowRequest(BaseModel):
     inputs: Dict[str, Any]
     workflow: Dict[str, Any]
 
+class WorkflowWrapper(BaseModel):
+    workflow: Workflow
+
 # ==== In-Memory Store (for example only) ====
 saved_workflows: Dict[str, Workflow] = {}
 
 # ==== Endpoint: Save Workflow ====
-class WorkflowWrapper(BaseModel):
-    workflow: Workflow
-
 @app.post("/workflow", response_model=str)
-def save_workflow(wrapper: WorkflowWrapper):
+def save_workflow(request_data: Dict[str, Any]):
+    """
+    Save a workflow configuration and return its ID.
+    Accepts either a direct workflow object or a WorkflowRequest format.
+    """
     workflow_id = str(uuid.uuid4())
-    saved_workflows[workflow_id] = wrapper.workflow
+    
+    # Check if this is a direct workflow format (has nodes and edges)
+    if "nodes" in request_data and "edges" in request_data:
+        # Direct workflow format
+        workflow = Workflow(**request_data)
+        saved_workflows[workflow_id] = workflow
+    # Check if this is a WorkflowRequest format (has workflow and inputs)
+    elif "workflow" in request_data:
+        # WorkflowRequest format
+        workflow = Workflow(**request_data["workflow"])
+        saved_workflows[workflow_id] = workflow
+    else:
+        raise HTTPException(status_code=422, detail="Invalid request format. Expected either a workflow object with 'nodes' and 'edges' or a request object with 'workflow' field.")
+    
     return workflow_id
 
 # ==== Endpoint: Load Workflow ====
