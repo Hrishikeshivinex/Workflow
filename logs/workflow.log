@@ -4087,3 +4087,2993 @@
   }
 }
 2025-04-23 12:40:23,303 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
+2025-04-23 15:06:20,163 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-23 15:06:20,163 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-23 15:06:20,163 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-23 15:06:20,163 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-23 15:06:20,163 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-23 15:06:20,163 - workflow.TimeTriggerNode - INFO - Trigger trigger1 started with 1 minute interval
+2025-04-23 15:06:20,164 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #1)
+2025-04-23 15:06:20,164 - workflow - INFO - Executing scheduled workflow 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a
+2025-04-23 15:06:20,164 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of USA?'}
+2025-04-23 15:06:20,165 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 15:06:20,165 - workflow - INFO - Starting workflow execution: 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a
+2025-04-23 15:06:20,165 - workflow - DEBUG - Found Input node with key: question
+2025-04-23 15:06:20,165 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 15:06:20,165 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of USA?'}
+2025-04-23 15:06:20,165 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-23 15:06:20,165 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-23 15:06:20,165 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-23 15:06:20,165 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-23 15:06:20,165 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-23 15:06:20,165 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-23 15:06:20,166 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.165951",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of USA?"
+    }
+  },
+  "output": null
+}
+2025-04-23 15:06:20,166 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of USA?'}
+2025-04-23 15:06:20,166 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of USA?"
+    }
+  }
+}
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-23 15:06:20,166 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of USA?"
+    }
+  },
+  "output": null
+}
+2025-04-23 15:06:20,166 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of USA?"
+  }
+}
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-23 15:06:20,166 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of USA?"
+  },
+  "output": null
+}
+2025-04-23 15:06:20,166 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-23 15:06:20,166 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of USA?
+2025-04-23 15:06:20,166 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of USA?"
+  }
+}
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-23 15:06:20,166 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-23 15:06:20,166 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.166961",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of USA?"
+  },
+  "output": null
+}
+2025-04-23 15:06:20,178 - workflow.LLMNode - DEBUG - Using API key ending in: ...85UA
+2025-04-23 15:06:20,178 - workflow.LLMNode - DEBUG - Using prompt: Answer this question: What is the capital of USA?
+2025-04-23 15:06:20,178 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-23 15:06:20,799 - workflow.LLMNode - ERROR - Error in LLM processing: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:06:20,800 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.800449",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+  }
+}
+2025-04-23 15:06:20,801 - workflow.FlowConfig - ERROR - Error executing workflow: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:06:20,801 - workflow - ERROR - Workflow execution failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:06:20,802 - workflow - ERROR - Error in scheduled execution of workflow 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a: 500: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:06:20,803 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:06:20.802969",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 1
+  }
+}
+2025-04-23 15:07:20,814 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #2)
+2025-04-23 15:07:20,814 - workflow - INFO - Executing scheduled workflow 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a
+2025-04-23 15:07:20,815 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of USA?'}
+2025-04-23 15:07:20,815 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 15:07:20,815 - workflow - INFO - Starting workflow execution: 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a
+2025-04-23 15:07:20,815 - workflow - DEBUG - Found Input node with key: question
+2025-04-23 15:07:20,815 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 15:07:20,815 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of USA?'}
+2025-04-23 15:07:20,815 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-23 15:07:20,815 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-23 15:07:20,815 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-23 15:07:20,815 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-23 15:07:20,815 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-23 15:07:20,815 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-23 15:07:20,815 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.815799",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of USA?"
+    }
+  },
+  "output": null
+}
+2025-04-23 15:07:20,815 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of USA?'}
+2025-04-23 15:07:20,815 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.815799",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of USA?"
+    }
+  }
+}
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-23 15:07:20,816 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.816797",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of USA?"
+    }
+  },
+  "output": null
+}
+2025-04-23 15:07:20,816 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.816797",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of USA?"
+  }
+}
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-23 15:07:20,816 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.816797",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of USA?"
+  },
+  "output": null
+}
+2025-04-23 15:07:20,816 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-23 15:07:20,816 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of USA?
+2025-04-23 15:07:20,816 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.816797",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of USA?"
+  }
+}
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-23 15:07:20,816 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-23 15:07:20,816 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:20.816797",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of USA?"
+  },
+  "output": null
+}
+2025-04-23 15:07:20,827 - workflow.LLMNode - DEBUG - Using API key ending in: ...85UA
+2025-04-23 15:07:20,827 - workflow.LLMNode - DEBUG - Using prompt: Answer this question: What is the capital of USA?
+2025-04-23 15:07:20,827 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-23 15:07:21,501 - workflow.LLMNode - ERROR - Error in LLM processing: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:07:21,503 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:21.501628",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+  }
+}
+2025-04-23 15:07:21,503 - workflow.FlowConfig - ERROR - Error executing workflow: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:07:21,503 - workflow - ERROR - Workflow execution failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:07:21,503 - workflow - ERROR - Error in scheduled execution of workflow 7d0ebb91-ee8b-4d9d-a409-1acc37ae6e2a: 500: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************85UA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-23 15:07:21,503 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T15:07:21.503135",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 2
+  }
+}
+2025-04-23 15:07:25,002 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
+2025-04-23 16:20:58,518 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-23 16:20:58,518 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-23 16:20:58,518 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-23 16:20:58,518 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-23 16:20:58,518 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-23 16:20:58,518 - workflow.TimeTriggerNode - INFO - Trigger trigger1 started with 1 minute interval
+2025-04-23 16:20:58,519 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #1)
+2025-04-23 16:20:58,520 - workflow - INFO - Executing scheduled workflow 34197192-ba51-4b55-82ef-6ae963f329ae
+2025-04-23 16:20:58,520 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-23 16:20:58,520 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 16:20:58,520 - workflow - INFO - Starting workflow execution: 34197192-ba51-4b55-82ef-6ae963f329ae
+2025-04-23 16:20:58,520 - workflow - DEBUG - Found Input node with key: question
+2025-04-23 16:20:58,520 - workflow - DEBUG - Input node is looking for key: question
+2025-04-23 16:20:58,521 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-23 16:20:58,521 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-23 16:20:58,521 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.521790",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-23 16:20:58,521 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-23 16:20:58,521 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.521790",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-23 16:20:58,521 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.521790",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-23 16:20:58,521 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.521790",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-23 16:20:58,521 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-23 16:20:58,521 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.521790",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-23 16:20:58,521 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-23 16:20:58,521 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-23 16:20:58,522 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.522840",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-23 16:20:58,522 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-23 16:20:58,522 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-23 16:20:58,522 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T16:20:58.522840",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-23 16:20:58,535 - workflow.LLMNode - DEBUG - Using API key ending in: ...1cEA
+2025-04-23 16:20:58,535 - workflow.LLMNode - DEBUG - Using prompt: Answer this question: What is the capital of France?
+2025-04-23 16:20:58,535 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-23 16:21:00,609 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-23 16:21:00,609 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-23T16:21:00.609133",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-23 16:21:00,609 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-23 16:21:00,609 - workflow - INFO - Workflow completed in 2.09 seconds
+2025-04-23 16:21:00,610 - workflow - INFO - Scheduled execution of workflow 34197192-ba51-4b55-82ef-6ae963f329ae completed
+2025-04-23 16:21:00,610 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-23T16:21:00.610068",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 1
+  }
+}
+2025-04-23 16:21:14,401 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
+2025-04-24 10:50:03,532 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 10:50:03,532 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 10:50:03,533 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 10:50:03,533 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 10:50:03,533 - workflow - ERROR - Error in workflow endpoint: '3'
+2025-04-24 11:09:00,960 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 11:09:00,960 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 11:09:00,960 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 11:09:00,960 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 11:09:00,960 - workflow - ERROR - Error in workflow endpoint: '3'
+2025-04-24 12:09:18,958 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 12:09:18,958 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 12:09:18,959 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 12:09:18,959 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 12:09:18,959 - workflow - ERROR - Error in workflow endpoint: '3'
+2025-04-24 12:11:35,306 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 12:11:35,306 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 12:11:35,306 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 12:11:35,306 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 12:11:35,306 - workflow - ERROR - Error in workflow endpoint: '3'
+2025-04-24 12:20:11,930 - workflow.SQLExecutorNode - DEBUG - Executing SQL query: SELECT product_name, SUM(sales) as total_sales FROM orders GROUP BY product_name
+2025-04-24 12:20:12,128 - workflow.SQLExecutorNode - DEBUG - Database connection established successfully
+2025-04-24 12:20:12,162 - workflow.SQLExecutorNode - DEBUG - Query returned 8 rows
+2025-04-24 12:20:12,168 - workflow.SQLExecutorNode - DEBUG - Query execution completed successfully
+2025-04-24 12:20:12,170 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 12:20:12,171 - workflow.GraphBuilderNode - DEBUG - Received input data structure: {
+  "row_count": 8,
+  "columns": [
+    "product_name",
+    "total_sales"
+  ]
+}
+2025-04-24 12:20:12,171 - workflow.GraphBuilderNode - DEBUG - Processing 8 records
+2025-04-24 12:20:12,171 - workflow.GraphBuilderNode - DEBUG - Using x_axis: product_name, y_axis: total_sales
+2025-04-24 12:20:12,171 - workflow.GraphBuilderNode - DEBUG - Generated chart configuration: {
+  "type": "bar",
+  "data": {
+    "labels": [
+      "Gaming Laptop",
+      "Office Desktop",
+      "Server Stack",
+      "Network Kit",
+      "Workstation",
+      "Storage Array",
+      "Security System",
+      "Cloud License"
+    ],
+    "datasets": [
+      {
+        "label": "Sales",
+        "data": [
+          15000.0,
+          8500.5,
+          12000.75,
+          9500.25,
+          11000.0,
+          7500.5,
+          13500.0,
+          6500.75
+        ]
+      }
+    ]
+  },
+  "options": {
+    "title": {
+      "display": true,
+      "text": "Total Sales by Product"
+    },
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Product Name"
+        }
+      },
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Total Sales"
+        }
+      }
+    }
+  }
+}
+2025-04-24 12:58:26,282 - workflow - INFO - Executing workflow bd7f8d30-eafc-4493-a2ec-1ee16021214d without triggers
+2025-04-24 12:58:26,282 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 12:58:26,283 - workflow - INFO - Starting workflow execution: bd7f8d30-eafc-4493-a2ec-1ee16021214d
+2025-04-24 12:58:26,283 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 12:58:26,283 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 12:58:26,283 - workflow - DEBUG - Input data before execution: {'question': 'total sales North'}
+2025-04-24 12:58:26,283 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 12:58:26,283 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 12:58:26,283 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 12:58:26,284 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 12:58:26,284 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 12:58:26,284 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:26.284862",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "question": "total sales North"
+    }
+  },
+  "output": null
+}
+2025-04-24 12:58:26,284 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:26.284862",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "total sales North"
+  }
+}
+2025-04-24 12:58:26,284 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 12:58:26,284 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 12:58:26,284 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:26.284862",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "total sales North"
+  },
+  "output": null
+}
+2025-04-24 12:58:26,294 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 12:58:26,294 - workflow.LLMNode - DEBUG - Formatted prompt from template: Generate a SQL query for: total sales North
+2025-04-24 12:58:26,294 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 12:58:28,290 - workflow.LLMNode - DEBUG - Generated response: SELECT SUM(sales_amount) AS total_sales
+FROM sales
+WHERE region = 'North';
+2025-04-24 12:58:28,291 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:28.291727",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+  }
+}
+2025-04-24 12:58:28,291 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 12:58:28,291 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 12:58:28,291 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:28.291727",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+  },
+  "output": null
+}
+2025-04-24 12:58:28,291 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 12:58:28,452 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT SUM(sales_amount) AS total_sales
+FROM sales
+WHERE region = 'North';
+2025-04-24 12:58:28,529 - workflow.SQLExecutorNode - ERROR - SQL query was: SELECT SUM(sales_amount) AS total_sales
+FROM sales
+WHERE region = 'North';
+2025-04-24 12:58:28,531 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 12:58:28,549 - workflow.SQLExecutorNode - ERROR - Detailed error information: {'error': '(pymysql.err.ProgrammingError) (1146, "Table \'mydb.sales\' doesn\'t exist")\n[SQL: SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = \'North\';]\n(Background on this error at: https://sqlalche.me/e/20/f405)', 'type': 'ProgrammingError', 'connection_info': {'host': 'localhost', 'port': 3306, 'user': 'root', 'database': 'mydb'}, 'sql_query': "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"}
+2025-04-24 12:58:28,550 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:28.549026",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1146, \"Table 'mydb.sales' doesn't exist\")\n[SQL: SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+      }
+    }
+  }
+}
+2025-04-24 12:58:28,550 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 12:58:28,550 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 12:58:28,550 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:28.550025",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1146, \"Table 'mydb.sales' doesn't exist\")\n[SQL: SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 12:58:28,550 - workflow.GraphBuilderNode - DEBUG - Received input data structure: {
+  "error": "(pymysql.err.ProgrammingError) (1146, \"Table 'mydb.sales' doesn't exist\")\n[SQL: SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+  "sql_query": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+}
+2025-04-24 12:58:28,550 - workflow.GraphBuilderNode - DEBUG - Processing 0 records
+2025-04-24 12:58:28,550 - workflow.GraphBuilderNode - DEBUG - Using x_axis: product_name, y_axis: total_sales
+2025-04-24 12:58:28,550 - workflow.GraphBuilderNode - DEBUG - Generated chart configuration: {
+  "type": "bar",
+  "data": {
+    "labels": [],
+    "datasets": [
+      {
+        "label": "Sales",
+        "data": []
+      }
+    ]
+  },
+  "options": {
+    "title": {
+      "display": true,
+      "text": "Sales by Product in North Region"
+    },
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Product Name"
+        }
+      },
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Total Sales"
+        }
+      }
+    }
+  }
+}
+2025-04-24 12:58:28,551 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T12:58:28.551009",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": []
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1146, \"Table 'mydb.sales' doesn't exist\")\n[SQL: SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "SELECT SUM(sales_amount) AS total_sales\nFROM sales\nWHERE region = 'North';"
+      }
+    }
+  }
+}
+2025-04-24 12:58:28,551 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 12:58:28,551 - workflow - INFO - Workflow completed in 2.27 seconds
+2025-04-24 12:58:28,551 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:03:28,544 - workflow - INFO - Executing workflow 215a5d94-22a1-46f5-9418-b838d6803a5a without triggers
+2025-04-24 13:03:28,554 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:03:28,554 - workflow - INFO - Starting workflow execution: 215a5d94-22a1-46f5-9418-b838d6803a5a
+2025-04-24 13:03:28,555 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 13:03:28,555 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 13:03:28,555 - workflow - DEBUG - Input data before execution: {'question': 'total sales North'}
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:03:28,555 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:28.555948",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "question": "total sales North"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:03:28,555 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:28.555948",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "total sales North"
+  }
+}
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:03:28,555 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 13:03:28,555 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:28.555948",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "total sales North"
+  },
+  "output": null
+}
+2025-04-24 13:03:28,565 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 13:03:28,565 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Generate a SQL query for: total sales North
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+2025-04-24 13:03:28,565 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 13:03:29,650 - workflow.LLMNode - DEBUG - Generated response: SELECT SUM(sales) AS total_sales 
+FROM orders 
+WHERE region = 'North';
+2025-04-24 13:03:29,651 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:29.651941",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT SUM(sales) AS total_sales \nFROM orders \nWHERE region = 'North';"
+  }
+}
+2025-04-24 13:03:29,651 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 13:03:29,651 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:03:29,651 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:29.651941",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT SUM(sales) AS total_sales \nFROM orders \nWHERE region = 'North';"
+  },
+  "output": null
+}
+2025-04-24 13:03:29,651 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:03:29,769 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:03:29,769 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT SUM(sales) AS total_sales 
+FROM orders 
+WHERE region = 'North';
+2025-04-24 13:03:29,785 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 1 rows
+2025-04-24 13:03:29,791 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:03:29,791 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:29.791814",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "total_sales": 26000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 1,
+        "columns": [
+          "total_sales"
+        ]
+      }
+    }
+  }
+}
+2025-04-24 13:03:29,791 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:03:29,791 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:03:29,791 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:29.791814",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "total_sales": 26000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 1,
+        "columns": [
+          "total_sales"
+        ]
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:03:29,792 - workflow.GraphBuilderNode - DEBUG - Received input data structure: {
+  "row_count": 1,
+  "columns": [
+    "total_sales"
+  ]
+}
+2025-04-24 13:03:29,792 - workflow.GraphBuilderNode - DEBUG - Processing 1 records
+2025-04-24 13:03:29,792 - workflow.GraphBuilderNode - DEBUG - Using x_axis: product_name, y_axis: total_sales
+2025-04-24 13:03:29,792 - workflow.GraphBuilderNode - ERROR - Error in graph building: 'product_name'
+2025-04-24 13:03:29,792 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:03:29.792829",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "error": "'product_name'"
+  }
+}
+2025-04-24 13:03:29,792 - workflow.FlowConfig - ERROR - Error executing workflow: 'product_name'
+2025-04-24 13:03:29,793 - workflow - ERROR - Workflow execution failed: 'product_name'
+2025-04-24 13:03:29,793 - workflow - ERROR - Error in workflow endpoint: 500: 'product_name'
+2025-04-24 13:06:49,889 - workflow - INFO - Executing workflow 215a5d94-22a1-46f5-9418-b838d6803a5a without triggers
+2025-04-24 13:06:49,889 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:06:49,890 - workflow - INFO - Starting workflow execution: 215a5d94-22a1-46f5-9418-b838d6803a5a
+2025-04-24 13:06:49,890 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:06:49,890 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:06:49,890 - workflow - DEBUG - Input data before execution: {'query': "SELECT product_name, SUM(sales) as total_sales FROM orders WHERE region = 'North' GROUP BY product_name ORDER BY total_sales DESC"}
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:06:49,890 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:49.890330",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "SELECT product_name, SUM(sales) as total_sales FROM orders WHERE region = 'North' GROUP BY product_name ORDER BY total_sales DESC"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:06:49,890 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:49.890330",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) as total_sales FROM orders WHERE region = 'North' GROUP BY product_name ORDER BY total_sales DESC"
+  }
+}
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:06:49,890 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:06:49,890 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:49.890330",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) as total_sales FROM orders WHERE region = 'North' GROUP BY product_name ORDER BY total_sales DESC"
+  },
+  "output": null
+}
+2025-04-24 13:06:49,890 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:06:50,002 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:06:50,002 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) as total_sales FROM orders WHERE region = 'North' GROUP BY product_name ORDER BY total_sales DESC
+2025-04-24 13:06:50,014 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 2 rows
+2025-04-24 13:06:50,018 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:06:50,019 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:50.019387",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  }
+}
+2025-04-24 13:06:50,019 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:06:50,019 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:06:50,019 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:50.019387",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:06:50,020 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:06:50.019387",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Workstation"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                11000.0
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  }
+}
+2025-04-24 13:06:50,020 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:06:50,020 - workflow - INFO - Workflow completed in 0.13 seconds
+2025-04-24 13:06:50,020 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:07:54,070 - workflow - INFO - Executing workflow 215a5d94-22a1-46f5-9418-b838d6803a5a without triggers
+2025-04-24 13:07:54,071 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:07:54,071 - workflow - INFO - Starting workflow execution: 215a5d94-22a1-46f5-9418-b838d6803a5a
+2025-04-24 13:07:54,071 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:07:54,071 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:07:54,071 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:07:54,071 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:07:54,072 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:07:54,072 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:07:54,072 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:07:54,072 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.072488",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:07:54,072 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.072488",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:07:54,072 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:07:54,072 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:07:54,072 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.072488",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:07:54,072 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:07:54,087 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:07:54,087 - workflow.SQLExecutorNode - INFO - Executing SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:07:54,089 - workflow.SQLExecutorNode - ERROR - SQL query execution error: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:07:54,090 - workflow.SQLExecutorNode - ERROR - SQL query was: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:07:54,091 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:07:54,092 - workflow.SQLExecutorNode - ERROR - Error in SQL execution: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:07:54,092 - workflow.SQLExecutorNode - ERROR - Detailed error information: {'error': '(pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'me the total sales for each product in the North region, listed from the highest\' at line 1")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)', 'type': 'ProgrammingError', 'connection_info': {'host': 'localhost', 'port': 3306, 'user': 'root', 'database': 'mydb'}, 'sql_query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:07:54,092 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.092481",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:07:54,093 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:07:54,093 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:07:54,093 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.093489",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:07:54,093 - workflow.GraphBuilderNode - ERROR - Error in input data: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:07:54,093 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:07:54.093489",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "visualization": null,
+      "raw_data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:07:54,093 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:07:54,093 - workflow - INFO - Workflow completed in 0.02 seconds
+2025-04-24 13:07:54,093 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:12:52,219 - workflow - INFO - Executing workflow 215a5d94-22a1-46f5-9418-b838d6803a5a without triggers
+2025-04-24 13:12:52,219 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:12:52,219 - workflow - INFO - Starting workflow execution: 215a5d94-22a1-46f5-9418-b838d6803a5a
+2025-04-24 13:12:52,220 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:12:52,220 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:12:52,220 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:12:52,220 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.220890",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:12:52,220 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.220890",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:12:52,220 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:12:52,220 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.220890",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:12:52,221 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:12:52,332 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:12:52,333 - workflow.SQLExecutorNode - INFO - Executing SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:12:52,340 - workflow.SQLExecutorNode - ERROR - SQL query execution error: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:12:52,340 - workflow.SQLExecutorNode - ERROR - SQL query was: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:12:52,341 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:12:52,341 - workflow.SQLExecutorNode - ERROR - Error in SQL execution: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:12:52,343 - workflow.SQLExecutorNode - ERROR - Detailed error information: {'error': '(pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'me the total sales for each product in the North region, listed from the highest\' at line 1")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)', 'type': 'ProgrammingError', 'connection_info': {'host': 'localhost', 'port': 3306, 'user': 'root', 'database': 'mydb'}, 'sql_query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:12:52,343 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.343199",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:12:52,343 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:12:52,343 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:12:52,343 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.343199",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:12:52,343 - workflow.GraphBuilderNode - ERROR - Error in input data: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:12:52,343 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:12:52.343199",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "visualization": null,
+      "raw_data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:12:52,343 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:12:52,343 - workflow - INFO - Workflow completed in 0.12 seconds
+2025-04-24 13:12:52,344 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:24:12,576 - workflow - INFO - Executing workflow 215a5d94-22a1-46f5-9418-b838d6803a5a without triggers
+2025-04-24 13:24:12,577 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:24:12,577 - workflow - INFO - Starting workflow execution: 215a5d94-22a1-46f5-9418-b838d6803a5a
+2025-04-24 13:24:12,577 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:24:12,577 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:24:12,577 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:24:12,577 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:24:12,577 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:24:12,577 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:24:12,577 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:24:12,577 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.577270",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:24:12,578 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.577270",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:24:12,578 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:24:12,578 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:24:12,578 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.578276",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:24:12,578 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:24:12,671 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:24:12,671 - workflow.SQLExecutorNode - INFO - Executing SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:24:12,678 - workflow.SQLExecutorNode - ERROR - SQL query execution error: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:24:12,679 - workflow.SQLExecutorNode - ERROR - SQL query was: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:24:12,681 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:24:12,681 - workflow.SQLExecutorNode - ERROR - Error in SQL execution: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:24:12,681 - workflow.SQLExecutorNode - ERROR - Detailed error information: {'error': '(pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'me the total sales for each product in the North region, listed from the highest\' at line 1")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)', 'type': 'ProgrammingError', 'connection_info': {'host': 'localhost', 'port': 3306, 'user': 'root', 'database': 'mydb'}, 'sql_query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:24:12,682 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.682040",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:24:12,682 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:24:12,682 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:24:12,682 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.682040",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:24:12,682 - workflow.GraphBuilderNode - ERROR - Error in input data: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:24:12,682 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:24:12.682040",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "visualization": null,
+      "raw_data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:24:12,682 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:24:12,682 - workflow - INFO - Workflow completed in 0.10 seconds
+2025-04-24 13:24:12,683 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:25:07,907 - workflow - INFO - Executing workflow 12649bbe-31a5-40cc-b2a3-b5c9f9c6bd33 without triggers
+2025-04-24 13:25:07,907 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:25:07,908 - workflow - INFO - Starting workflow execution: 12649bbe-31a5-40cc-b2a3-b5c9f9c6bd33
+2025-04-24 13:25:07,908 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:25:07,908 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:25:07,908 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:25:07,908 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.908495",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:25:07,908 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.908495",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:25:07,908 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:25:07,908 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.908495",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:25:07,909 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:25:07,929 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:25:07,930 - workflow.SQLExecutorNode - INFO - Executing SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:25:07,932 - workflow.SQLExecutorNode - ERROR - SQL query execution error: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:25:07,933 - workflow.SQLExecutorNode - ERROR - SQL query was: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+2025-04-24 13:25:07,935 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:25:07,935 - workflow.SQLExecutorNode - ERROR - Error in SQL execution: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:25:07,936 - workflow.SQLExecutorNode - ERROR - Detailed error information: {'error': '(pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'me the total sales for each product in the North region, listed from the highest\' at line 1")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)', 'type': 'ProgrammingError', 'connection_info': {'host': 'localhost', 'port': 3306, 'user': 'root', 'database': 'mydb'}, 'sql_query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:25:07,936 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.936968",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:25:07,936 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:25:07,936 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:25:07,936 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.936968",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:25:07,936 - workflow.GraphBuilderNode - ERROR - Error in input data: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1")
+[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-24 13:25:07,938 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:25:07.938431",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+      "visualization": null,
+      "raw_data": [],
+      "metadata": {
+        "error": "(pymysql.err.ProgrammingError) (1064, \"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'me the total sales for each product in the North region, listed from the highest' at line 1\")\n[SQL: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+        "sql_query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+      }
+    }
+  }
+}
+2025-04-24 13:25:07,938 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:25:07,938 - workflow - INFO - Workflow completed in 0.03 seconds
+2025-04-24 13:25:07,938 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:26:48,705 - workflow - INFO - Executing workflow 12649bbe-31a5-40cc-b2a3-b5c9f9c6bd33 without triggers
+2025-04-24 13:26:48,705 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:26:48,705 - workflow - INFO - Starting workflow execution: 12649bbe-31a5-40cc-b2a3-b5c9f9c6bd33
+2025-04-24 13:26:48,706 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:26:48,706 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:26:48,706 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:26:48,706 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:26:48,706 - workflow.FlowConfig - ERROR - Error building nodes: Unknown node type: NLPToSQL
+2025-04-24 13:26:48,706 - workflow - ERROR - Workflow execution failed: Unknown node type: NLPToSQL
+2025-04-24 13:26:48,707 - workflow - ERROR - Error in workflow endpoint: 500: Unknown node type: NLPToSQL
+2025-04-24 13:29:03,127 - workflow - INFO - Executing workflow fb4ad741-664a-436a-85d2-27b95b67d9e5 without triggers
+2025-04-24 13:29:03,128 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:29:03,128 - workflow - INFO - Starting workflow execution: fb4ad741-664a-436a-85d2-27b95b67d9e5
+2025-04-24 13:29:03,128 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:29:03,128 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:29:03,129 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:29:03,129 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:29:03,129 - workflow.FlowConfig - ERROR - Error building nodes: Unknown node type: NLPToSQL
+2025-04-24 13:29:03,129 - workflow - ERROR - Workflow execution failed: Unknown node type: NLPToSQL
+2025-04-24 13:29:03,129 - workflow - ERROR - Error in workflow endpoint: 500: Unknown node type: NLPToSQL
+2025-04-24 13:32:07,288 - workflow - INFO - Executing workflow 86f3502a-cf9f-4fbc-817f-81f7c3ab51fb without triggers
+2025-04-24 13:32:07,289 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:32:07,289 - workflow - INFO - Starting workflow execution: 86f3502a-cf9f-4fbc-817f-81f7c3ab51fb
+2025-04-24 13:32:07,289 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:32:07,289 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:32:07,289 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:32:07,289 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:32:07,289 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 13:32:07,289 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:32:07,289 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:32:07,289 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:32:07,289 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:07.289105",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:32:07,290 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:07.290109",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:32:07,290 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:32:07,290 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 13:32:07,290 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:07.290109",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:32:07,298 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 13:32:07,298 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates
+3. Use SUM(sales) AS total_sales for sales aggregation
+4. Only return the SQL query without any explanations
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 13:32:07,299 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 13:32:08,797 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE region = 'North'
+GROUP BY product_name
+ORDER BY total_sales DESC;
+2025-04-24 13:32:08,798 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:08.798575",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+  }
+}
+2025-04-24 13:32:08,798 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 13:32:08,798 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:32:08,798 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:08.798575",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+  },
+  "output": null
+}
+2025-04-24 13:32:08,798 - workflow.SQLExecutorNode - INFO - Attempting to connect to database at localhost:3306/mydb
+2025-04-24 13:32:08,815 - workflow.SQLExecutorNode - INFO - Successfully connected to database mydb at localhost
+2025-04-24 13:32:08,815 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE region = 'North'
+GROUP BY product_name
+ORDER BY total_sales DESC;
+2025-04-24 13:32:08,820 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 2 rows
+2025-04-24 13:32:08,824 - workflow.SQLExecutorNode - DEBUG - Database connection closed
+2025-04-24 13:32:08,824 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:08.824570",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  }
+}
+2025-04-24 13:32:08,824 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:32:08,824 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:32:08,824 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:08.824570",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:32:08,825 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:32:08.824570",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Workstation"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                11000.0
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ]
+      }
+    }
+  }
+}
+2025-04-24 13:32:08,825 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:32:08,825 - workflow - INFO - Workflow completed in 1.54 seconds
+2025-04-24 13:32:08,825 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:52:56,547 - workflow - INFO - Executing workflow f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3 without triggers
+2025-04-24 13:52:56,547 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:52:56,548 - workflow - INFO - Starting workflow execution: f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3
+2025-04-24 13:52:56,548 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:52:56,548 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:52:56,548 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest'}
+2025-04-24 13:52:56,548 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:52:56,548 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 13:52:56,548 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:52:56,548 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:52:56,548 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:52:56,548 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:56.548079",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:52:56,549 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:56.548079",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  }
+}
+2025-04-24 13:52:56,549 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:52:56,549 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 13:52:56,549 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:56.549077",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest"
+  },
+  "output": null
+}
+2025-04-24 13:52:56,564 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 13:52:56,564 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product in the North region, listed from the highest sales amount down to the lowest
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates
+3. Use SUM(sales) AS total_sales for sales aggregation
+4. Only return the SQL query without any explanations
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 13:52:56,564 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 13:52:58,529 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE region = 'North'
+GROUP BY product_name
+ORDER BY total_sales DESC;
+2025-04-24 13:52:58,529 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:58.529809",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+  }
+}
+2025-04-24 13:52:58,529 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 13:52:58,529 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:52:58,529 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:58.529809",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+  },
+  "output": null
+}
+2025-04-24 13:52:58,529 - workflow.SQLExecutorNode - INFO - Connecting to database at localhost:3306/mydb
+2025-04-24 13:52:58,638 - workflow.SQLExecutorNode - INFO - Successfully connected to database
+2025-04-24 13:52:58,639 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE region = 'North'
+GROUP BY product_name
+ORDER BY total_sales DESC;
+2025-04-24 13:52:58,649 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 2 rows
+2025-04-24 13:52:58,653 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:58.653197",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+      }
+    }
+  }
+}
+2025-04-24 13:52:58,654 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:52:58,654 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:52:58,654 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:58.654181",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:52:58,654 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:52:58.654685",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Workstation"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                11000.0
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 2,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE region = 'North'\nGROUP BY product_name\nORDER BY total_sales DESC;"
+      }
+    }
+  }
+}
+2025-04-24 13:52:58,654 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:52:58,654 - workflow - INFO - Workflow completed in 2.11 seconds
+2025-04-24 13:52:58,654 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:55:29,080 - workflow - INFO - Executing workflow f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3 without triggers
+2025-04-24 13:55:29,081 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:55:29,081 - workflow - INFO - Starting workflow execution: f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3
+2025-04-24 13:55:29,081 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:55:29,082 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:55:29,082 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product'}
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:55:29,082 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:29.082626",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:55:29,082 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:29.082626",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product"
+  }
+}
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:55:29,082 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 13:55:29,082 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:29.082626",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product"
+  },
+  "output": null
+}
+2025-04-24 13:55:29,091 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 13:55:29,091 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates
+3. Use SUM(sales) AS total_sales for sales aggregation
+4. Only return the SQL query without any explanations
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 13:55:29,091 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 13:55:30,102 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 13:55:30,103 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:30.103254",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  }
+}
+2025-04-24 13:55:30,103 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 13:55:30,103 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:55:30,103 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:30.103254",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  },
+  "output": null
+}
+2025-04-24 13:55:30,103 - workflow.SQLExecutorNode - INFO - Connecting to database at localhost:3306/mydb
+2025-04-24 13:55:30,116 - workflow.SQLExecutorNode - INFO - Successfully connected to database
+2025-04-24 13:55:30,117 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 13:55:30,120 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 8 rows
+2025-04-24 13:55:30,122 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:30.122281",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 13:55:30,123 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:55:30,123 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:55:30,123 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:30.123281",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:55:30,123 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:55:30.123281",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Office Desktop",
+            "Server Stack",
+            "Network Kit",
+            "Workstation",
+            "Storage Array",
+            "Security System",
+            "Cloud License"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                8500.5,
+                12000.75,
+                9500.25,
+                11000.0,
+                7500.5,
+                13500.0,
+                6500.75
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 13:55:30,123 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:55:30,124 - workflow - INFO - Workflow completed in 1.04 seconds
+2025-04-24 13:55:30,124 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 13:58:49,278 - workflow - INFO - Executing workflow f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3 without triggers
+2025-04-24 13:58:49,279 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 13:58:49,279 - workflow - INFO - Starting workflow execution: f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3
+2025-04-24 13:58:49,279 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 13:58:49,279 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 13:58:49,279 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product, I want to see only the gaming laptop'}
+2025-04-24 13:58:49,279 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 13:58:49,279 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 13:58:49,279 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 13:58:49,279 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 13:58:49,279 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 13:58:49,279 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:49.279759",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product, I want to see only the gaming laptop"
+    }
+  },
+  "output": null
+}
+2025-04-24 13:58:49,280 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:49.280750",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product, I want to see only the gaming laptop"
+  }
+}
+2025-04-24 13:58:49,280 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 13:58:49,280 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 13:58:49,280 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:49.280750",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product, I want to see only the gaming laptop"
+  },
+  "output": null
+}
+2025-04-24 13:58:49,289 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 13:58:49,289 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product, I want to see only the gaming laptop
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates
+3. Use SUM(sales) AS total_sales for sales aggregation
+4. Only return the SQL query without any explanations
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 13:58:49,289 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 13:58:50,389 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE product_name = 'gaming laptop'
+GROUP BY product_name;
+2025-04-24 13:58:50,390 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:50.390983",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE product_name = 'gaming laptop'\nGROUP BY product_name;"
+  }
+}
+2025-04-24 13:58:50,390 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 13:58:50,390 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 13:58:50,390 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:50.390983",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE product_name = 'gaming laptop'\nGROUP BY product_name;"
+  },
+  "output": null
+}
+2025-04-24 13:58:50,390 - workflow.SQLExecutorNode - INFO - Connecting to database at localhost:3306/mydb
+2025-04-24 13:58:50,420 - workflow.SQLExecutorNode - INFO - Successfully connected to database
+2025-04-24 13:58:50,420 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+WHERE product_name = 'gaming laptop'
+GROUP BY product_name;
+2025-04-24 13:58:50,425 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 1 rows
+2025-04-24 13:58:50,428 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:50.428379",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 1,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE product_name = 'gaming laptop'\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 13:58:50,428 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 13:58:50,428 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 13:58:50,428 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:50.428379",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 1,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE product_name = 'gaming laptop'\nGROUP BY product_name;"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 13:58:50,428 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T13:58:50.428379",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        }
+      ],
+      "metadata": {
+        "row_count": 1,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nWHERE product_name = 'gaming laptop'\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 13:58:50,429 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 13:58:50,429 - workflow - INFO - Workflow completed in 1.15 seconds
+2025-04-24 13:58:50,429 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 14:12:15,520 - workflow - INFO - Executing workflow f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3 without triggers
+2025-04-24 14:12:15,521 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 14:12:15,521 - workflow - INFO - Starting workflow execution: f4c91a85-6e0f-4208-a1b0-f6a51d7bd1e3
+2025-04-24 14:12:15,525 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 14:12:15,525 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 14:12:15,525 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product.'}
+2025-04-24 14:12:15,525 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 14:12:15,525 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 14:12:15,525 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 14:12:15,525 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 14:12:15,525 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 14:12:15,525 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:15.525099",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product."
+    }
+  },
+  "output": null
+}
+2025-04-24 14:12:15,525 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:15.525099",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product."
+  }
+}
+2025-04-24 14:12:15,526 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 14:12:15,526 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 14:12:15,526 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:15.526103",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product."
+  },
+  "output": null
+}
+2025-04-24 14:12:15,548 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 14:12:15,549 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product.
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates. Use SUM(sales) AS total_sales for sales aggregation. Only return the SQL query without any explanations.
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 14:12:15,549 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 14:12:16,962 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 14:12:16,962 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:16.962036",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  }
+}
+2025-04-24 14:12:16,962 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 14:12:16,962 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 14:12:16,962 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:16.962036",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  },
+  "output": null
+}
+2025-04-24 14:12:16,962 - workflow.SQLExecutorNode - INFO - Connecting to database at localhost:3306/mydb
+2025-04-24 14:12:16,989 - workflow.SQLExecutorNode - INFO - Successfully connected to database
+2025-04-24 14:12:16,989 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 14:12:16,993 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 8 rows
+2025-04-24 14:12:16,997 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:16.997551",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 14:12:16,998 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 14:12:16,998 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 14:12:16,998 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:16.998551",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 14:12:16,999 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T14:12:16.998551",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Office Desktop",
+            "Server Stack",
+            "Network Kit",
+            "Workstation",
+            "Storage Array",
+            "Security System",
+            "Cloud License"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                8500.5,
+                12000.75,
+                9500.25,
+                11000.0,
+                7500.5,
+                13500.0,
+                6500.75
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 14:12:16,999 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 14:12:16,999 - workflow - INFO - Workflow completed in 1.48 seconds
+2025-04-24 14:12:16,999 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 14:23:25,569 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 14:23:25,569 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 14:23:25,569 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 14:23:25,569 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 14:23:25,569 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 14:23:25,570 - workflow.TimeTriggerNode - INFO - Trigger trigger1 started with 1 minute interval
+2025-04-24 14:23:25,570 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #1)
+2025-04-24 14:23:25,571 - workflow - INFO - Executing scheduled workflow dfcb8b09-2140-4655-80de-df8c0949fab6
+2025-04-24 14:23:25,571 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 14:23:25,571 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 14:23:25,571 - workflow - INFO - Starting workflow execution: dfcb8b09-2140-4655-80de-df8c0949fab6
+2025-04-24 14:23:25,571 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 14:23:25,571 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 14:23:25,571 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 14:23:25,571 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 14:23:25,571 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 14:23:25,571 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 14:23:25,571 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 14:23:25,571 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 14:23:25,571 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 14:23:25,571 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.571742",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 14:23:25,571 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 14:23:25,571 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.571742",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 14:23:25,572 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.572744",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 14:23:25,572 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.572744",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 14:23:25,572 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.572744",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 14:23:25,572 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 14:23:25,572 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 14:23:25,572 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.572744",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 14:23:25,572 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 14:23:25,572 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:25.572744",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 14:23:25,582 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 14:23:25,582 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 14:23:25,582 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 14:23:26,979 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 14:23:26,980 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:26.980064",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 14:23:26,980 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 14:23:26,980 - workflow - INFO - Workflow completed in 1.41 seconds
+2025-04-24 14:23:26,980 - workflow - INFO - Scheduled execution of workflow dfcb8b09-2140-4655-80de-df8c0949fab6 completed
+2025-04-24 14:23:26,980 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:23:26.980064",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 1
+  }
+}
+2025-04-24 14:24:25,218 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
+2025-04-24 14:29:57,338 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 14:29:57,339 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 14:29:57,339 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 14:29:57,339 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 14:29:57,339 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 14:29:57,339 - workflow.TimeTriggerNode - INFO - Trigger trigger1 started with 1 minute interval
+2025-04-24 14:29:57,340 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #1)
+2025-04-24 14:29:57,340 - workflow - INFO - Executing scheduled workflow c192f569-fefe-437e-8b54-495b4573fe6d
+2025-04-24 14:29:57,340 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 14:29:57,340 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 14:29:57,340 - workflow - INFO - Starting workflow execution: c192f569-fefe-437e-8b54-495b4573fe6d
+2025-04-24 14:29:57,341 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 14:29:57,341 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 14:29:57,341 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 14:29:57,341 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 14:29:57,341 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.341351",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 14:29:57,341 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 14:29:57,341 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.341351",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 14:29:57,341 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.341351",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 14:29:57,341 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.341351",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 14:29:57,341 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 14:29:57,342 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 14:29:57,342 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.342349",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 14:29:57,342 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 14:29:57,342 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 14:29:57,342 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.342349",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 14:29:57,342 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 14:29:57,342 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 14:29:57,342 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:57.342349",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 14:29:57,365 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 14:29:57,365 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 14:29:57,365 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 14:29:58,312 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 14:29:58,312 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:58.312709",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 14:29:58,312 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 14:29:58,312 - workflow - INFO - Workflow completed in 0.97 seconds
+2025-04-24 14:29:58,313 - workflow - INFO - Scheduled execution of workflow c192f569-fefe-437e-8b54-495b4573fe6d completed
+2025-04-24 14:29:58,313 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T14:29:58.313707",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 1
+  }
+}
+2025-04-24 14:30:14,140 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
+2025-04-24 14:34:24,539 - workflow - INFO - Executing workflow c192f569-fefe-437e-8b54-495b4573fe6d without triggers
+2025-04-24 14:34:24,539 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 14:34:24,539 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: 2
+2025-04-24 14:34:24,539 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 3
+2025-04-24 14:34:46,686 - workflow - INFO - Executing workflow c192f569-fefe-437e-8b54-495b4573fe6d without triggers
+2025-04-24 14:34:46,687 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 14:34:46,687 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: 2
+2025-04-24 14:34:46,687 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 3
