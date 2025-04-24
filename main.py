@@ -14,6 +14,8 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_mistralai import ChatMistralAI
 from langchain.schema import AIMessage, HumanMessage
 from nodes.time_trigger_node import TimeTriggerNode
+from nodes.database_nodes import SQLExecutorNode, NLPToSQLNode, NODE_REGISTRY
+from nodes.graph_builder_node import GraphBuilderNode
 
 app = FastAPI()
 
@@ -48,10 +50,13 @@ class WorkflowRequest(BaseModel):
 saved_workflows: Dict[str, Workflow] = {}
 
 # ==== Endpoint: Save Workflow ====
+class WorkflowWrapper(BaseModel):
+    workflow: Workflow
+
 @app.post("/workflow", response_model=str)
-def save_workflow(workflow: Workflow):
+def save_workflow(wrapper: WorkflowWrapper):
     workflow_id = str(uuid.uuid4())
-    saved_workflows[workflow_id] = workflow
+    saved_workflows[workflow_id] = wrapper.workflow
     return workflow_id
 
 # ==== Endpoint: Load Workflow ====
@@ -60,18 +65,6 @@ def load_workflow(workflow_id: str):
     if workflow_id not in saved_workflows:
         raise HTTPException(status_code=404, detail="Workflow not found")
     return saved_workflows[workflow_id]
-
-# ==== Endpoint: Delete Workflow ====
-@app.delete("/workflow/{workflow_id}", response_model=Dict[str, bool])
-def delete_workflow(workflow_id: str):
-    if workflow_id not in saved_workflows:
-        raise HTTPException(status_code=404, detail="Workflow not found")
-    
-    # Remove the workflow from the dictionary
-    del saved_workflows[workflow_id]
-    logger.info(f"Workflow deleted: {workflow_id}")
-    
-    return {"success": True}
 
 # ==== Helper: Streaming Generator ====
 async def stream_llm_response(prompt: str, model: str, api_key: str) -> AsyncGenerator[str, None]:
@@ -215,42 +208,68 @@ async def execute_workflow_endpoint(workflow_id: str, request_data: WorkflowRequ
             }
         
         # If no trigger nodes, execute normally
-        # Get the last node's ID (LLM node)
+        logger.info(f"Executing workflow {workflow_id} without triggers")
+        
+        # Find the last node's ID (should be GraphBuilder node)
         last_node_id = workflow["nodes"][-1]["id"]
+        last_node_type = workflow["nodes"][-1]["type"]
         
-        # Initialize flow with the workflow configuration
-        flow = FlowConfig(workflow)
+        # If the last node is a GraphBuilder, return its results
+        if last_node_type == "GraphBuilder":
+            logger.info(f"Workflow ends with a GraphBuilder node, returning visualization data")
+            
+            # Execute the workflow and get all results
+            results = await execute_workflow(workflow_id, request_data)
+            
+            # Return the GraphBuilder node's results
+            if last_node_id in results:
+                logger.info(f"Successfully generated graph visualization")
+                return results[last_node_id]
+            else:
+                logger.error(f"GraphBuilder node {last_node_id} not found in results")
+                raise HTTPException(status_code=500, detail=f"GraphBuilder node {last_node_id} not found in results")
         
-        # Get LLM node configuration
-        llm_node = next(node for node in workflow["nodes"] if node["id"] == last_node_id)
+        # If the last node is an LLM, stream its response (existing behavior)
+        elif last_node_type == "LLM":
+            # Initialize flow with the workflow configuration
+            flow = FlowConfig(workflow)
+            
+            # Get LLM node configuration
+            llm_node = next(node for node in workflow["nodes"] if node["id"] == last_node_id)
+            
+            # Get the prompt by executing up to the LLM node
+            node_outputs = {}
+            for node in workflow["nodes"]:
+                if node["id"] == last_node_id:
+                    break
+                if node["type"] == "Input":
+                    node_outputs[node["id"]] = request_data.inputs.get(node["data"].get("key"), None)
+                elif node["type"] == "PromptNode":
+                    template = node["data"].get("template")
+                    input_value = node_outputs[node["inputs"][0]]
+                    if isinstance(input_value, dict):
+                        node_outputs[node["id"]] = template.format(**input_value)
+                    else:
+                        node_outputs[node["id"]] = template.format(input=input_value)
+            
+            # Get the final prompt
+            prompt = node_outputs[llm_node["inputs"][0]]
+            
+            # Stream the LLM response
+            return StreamingResponse(
+                stream_llm_response(
+                    prompt=prompt,
+                    model=llm_node["data"]["model"],
+                    api_key=llm_node["data"]["api_key"]
+                ),
+                media_type="text/event-stream"
+            )
         
-        # Get the prompt by executing up to the LLM node
-        node_outputs = {}
-        for node in workflow["nodes"]:
-            if node["id"] == last_node_id:
-                break
-            if node["type"] == "Input":
-                node_outputs[node["id"]] = request_data.inputs.get(node["data"].get("key"), None)
-            elif node["type"] == "PromptNode":
-                template = node["data"].get("template")
-                input_value = node_outputs[node["inputs"][0]]
-                if isinstance(input_value, dict):
-                    node_outputs[node["id"]] = template.format(**input_value)
-                else:
-                    node_outputs[node["id"]] = template.format(input=input_value)
-        
-        # Get the final prompt
-        prompt = node_outputs[llm_node["inputs"][0]]
-        
-        # Stream the LLM response
-        return StreamingResponse(
-            stream_llm_response(
-                prompt=prompt,
-                model=llm_node["data"]["model"],
-                api_key=llm_node["data"]["api_key"]
-            ),
-            media_type="text/event-stream"
-        )
+        # For other node types, just return all results
+        else:
+            logger.info(f"Executing workflow and returning all results")
+            results = await execute_workflow(workflow_id, request_data)
+            return results
         
     except Exception as e:
         logger.error(f"Error in workflow endpoint: {str(e)}")
@@ -352,6 +371,7 @@ def get_scheduled_workflows():
         }
     
     return result
+
 
 if __name__ == "__main__":
     import uvicorn

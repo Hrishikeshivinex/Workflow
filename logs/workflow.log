@@ -1,0 +1,792 @@
+2025-04-24 15:41:56,981 - workflow - INFO - Executing workflow 3c38cda8-f915-4148-9395-51d1123d06db without triggers
+2025-04-24 15:41:56,982 - workflow - INFO - Workflow ends with a GraphBuilder node, returning visualization data
+2025-04-24 15:41:56,982 - workflow - INFO - Starting workflow execution: 3c38cda8-f915-4148-9395-51d1123d06db
+2025-04-24 15:41:56,982 - workflow - DEBUG - Found Input node with key: query
+2025-04-24 15:41:56,982 - workflow - DEBUG - Input node is looking for key: query
+2025-04-24 15:41:56,982 - workflow - DEBUG - Input data before execution: {'query': 'Show me the total sales for each product.'}
+2025-04-24 15:41:56,982 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 2
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Created node: SQLExecutor with ID: 3
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Created node: GraphBuilder with ID: 4
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Executing node: 1
+2025-04-24 15:41:56,983 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:56.983474",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": {
+    "input_received": {
+      "query": "Show me the total sales for each product."
+    }
+  },
+  "output": null
+}
+2025-04-24 15:41:56,983 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:56.983474",
+  "node_type": "InputNode",
+  "node_id": "1",
+  "input": null,
+  "output": {
+    "output_generated": "Show me the total sales for each product."
+  }
+}
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Node 1 execution completed
+2025-04-24 15:41:56,983 - workflow.FlowConfig - DEBUG - Executing node: 2
+2025-04-24 15:41:56,983 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:56.983474",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": {
+    "input_received": "Show me the total sales for each product."
+  },
+  "output": null
+}
+2025-04-24 15:41:56,994 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 15:41:56,994 - workflow.LLMNode - DEBUG - Formatted prompt from template with schema info: Convert this question to a SQL query: Show me the total sales for each product.
+
+Database schema:
+Table: orders
+Columns:
+- region (text): North, South, East, West
+- sales (numeric): The sales amount
+- order_date (date): The date of the order
+- product_name (text): The name of the product
+- customer_name (text): The name of the customer
+
+Important guidelines:
+1. Always include product_name in your SELECT statement
+2. Always GROUP BY product_name when calculating aggregates. Use SUM(sales) AS total_sales for sales aggregation. Only return the SQL query without any explanations.
+
+
+                Important: Our database has a table called 'orders' with these columns:
+                - region (text): North, South, East, West
+                - sales (numeric): The sales amount
+                - order_date (date): The date of the order
+                - product_name (text): The name of the product
+                - customer_name (text): The name of the customer
+                
+                Do NOT use any tables named 'sales' - use the 'orders' table instead.
+                
+                IMPORTANT: Always include product_name in your SELECT statement and GROUP BY product_name
+                to ensure the graph can be built correctly. The GraphBuilder node requires data to be 
+                grouped by product_name with a total_sales column.
+                
+2025-04-24 15:41:56,994 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 15:41:58,142 - workflow.LLMNode - DEBUG - Generated response: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 15:41:58,142 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:58.142287",
+  "node_type": "LLMNode",
+  "node_id": "2",
+  "input": null,
+  "output": {
+    "output_generated": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  }
+}
+2025-04-24 15:41:58,142 - workflow.FlowConfig - DEBUG - Node 2 execution completed
+2025-04-24 15:41:58,142 - workflow.FlowConfig - DEBUG - Executing node: 3
+2025-04-24 15:41:58,142 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:58.142813",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": {
+    "input_received": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+  },
+  "output": null
+}
+2025-04-24 15:41:58,142 - workflow.SQLExecutorNode - INFO - Connecting to database at localhost:3306/mydb
+2025-04-24 15:41:58,301 - workflow.SQLExecutorNode - INFO - Successfully connected to database
+2025-04-24 15:41:58,301 - workflow.SQLExecutorNode - INFO - Executing SQL query: SELECT product_name, SUM(sales) AS total_sales
+FROM orders
+GROUP BY product_name;
+2025-04-24 15:41:58,330 - workflow.SQLExecutorNode - INFO - Query executed successfully, returned 8 rows
+2025-04-24 15:41:58,337 - workflow.SQLExecutorNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:58.337739",
+  "node_type": "SQLExecutorNode",
+  "node_id": "3",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 15:41:58,338 - workflow.FlowConfig - DEBUG - Node 3 execution completed
+2025-04-24 15:41:58,338 - workflow.FlowConfig - DEBUG - Executing node: 4
+2025-04-24 15:41:58,338 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:58.338741",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": {
+    "input_received": {
+      "data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  },
+  "output": null
+}
+2025-04-24 15:41:58,338 - workflow.GraphBuilderNode - DEBUG - {
+  "timestamp": "2025-04-24T15:41:58.338741",
+  "node_type": "GraphBuilderNode",
+  "node_id": "4",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "visualization": {
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Gaming Laptop",
+            "Office Desktop",
+            "Server Stack",
+            "Network Kit",
+            "Workstation",
+            "Storage Array",
+            "Security System",
+            "Cloud License"
+          ],
+          "datasets": [
+            {
+              "label": "Sales",
+              "data": [
+                15000.0,
+                8500.5,
+                12000.75,
+                9500.25,
+                11000.0,
+                7500.5,
+                13500.0,
+                6500.75
+              ]
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Sales by Product in North Region"
+          },
+          "scales": {
+            "x": {
+              "title": {
+                "display": true,
+                "text": "Product Name"
+              }
+            },
+            "y": {
+              "title": {
+                "display": true,
+                "text": "Total Sales"
+              }
+            }
+          }
+        }
+      },
+      "raw_data": [
+        {
+          "product_name": "Gaming Laptop",
+          "total_sales": 15000.0
+        },
+        {
+          "product_name": "Office Desktop",
+          "total_sales": 8500.5
+        },
+        {
+          "product_name": "Server Stack",
+          "total_sales": 12000.75
+        },
+        {
+          "product_name": "Network Kit",
+          "total_sales": 9500.25
+        },
+        {
+          "product_name": "Workstation",
+          "total_sales": 11000.0
+        },
+        {
+          "product_name": "Storage Array",
+          "total_sales": 7500.5
+        },
+        {
+          "product_name": "Security System",
+          "total_sales": 13500.0
+        },
+        {
+          "product_name": "Cloud License",
+          "total_sales": 6500.75
+        }
+      ],
+      "metadata": {
+        "row_count": 8,
+        "columns": [
+          "product_name",
+          "total_sales"
+        ],
+        "sql_query": "SELECT product_name, SUM(sales) AS total_sales\nFROM orders\nGROUP BY product_name;"
+      }
+    }
+  }
+}
+2025-04-24 15:41:58,339 - workflow.FlowConfig - DEBUG - Node 4 execution completed
+2025-04-24 15:41:58,339 - workflow - INFO - Workflow completed in 1.36 seconds
+2025-04-24 15:41:58,339 - workflow - INFO - Successfully generated graph visualization
+2025-04-24 15:44:56,042 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 15:44:56,043 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 15:44:56,043 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 15:44:56,043 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 15:44:56,043 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 15:44:56,043 - workflow.TimeTriggerNode - INFO - Trigger trigger1 started with 1 minute interval
+2025-04-24 15:44:56,044 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #1)
+2025-04-24 15:44:56,044 - workflow - INFO - Executing scheduled workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:44:56,044 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 15:44:56,044 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:44:56,045 - workflow - INFO - Starting workflow execution: d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:44:56,045 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 15:44:56,045 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:44:56,045 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 15:44:56,045 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 15:44:56,045 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.045509",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:44:56,045 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 15:44:56,045 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.045509",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 15:44:56,045 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.045509",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:44:56,045 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.045509",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 15:44:56,045 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 15:44:56,046 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 15:44:56,046 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.046522",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:44:56,046 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 15:44:56,046 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 15:44:56,046 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.046522",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 15:44:56,046 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 15:44:56,046 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 15:44:56,046 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.046522",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:44:56,056 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 15:44:56,056 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 15:44:56,056 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 15:44:56,908 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 15:44:56,908 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.908872",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 15:44:56,908 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 15:44:56,908 - workflow - INFO - Workflow completed in 0.86 seconds
+2025-04-24 15:44:56,908 - workflow - INFO - Scheduled execution of workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502 completed
+2025-04-24 15:44:56,909 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:44:56.909878",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 1
+  }
+}
+2025-04-24 15:45:56,918 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #2)
+2025-04-24 15:45:56,918 - workflow - INFO - Executing scheduled workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:45:56,919 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 15:45:56,919 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:45:56,919 - workflow - INFO - Starting workflow execution: d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:45:56,919 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 15:45:56,919 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:45:56,919 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 15:45:56,919 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 15:45:56,919 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 15:45:56,919 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 15:45:56,919 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 15:45:56,919 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 15:45:56,919 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 15:45:56,919 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.919642",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:45:56,919 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 15:45:56,919 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.919642",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 15:45:56,920 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.920651",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:45:56,920 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.920651",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 15:45:56,920 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.920651",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:45:56,920 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 15:45:56,920 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 15:45:56,920 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.920651",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 15:45:56,920 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 15:45:56,920 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:56.920651",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:45:56,934 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 15:45:56,934 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 15:45:56,934 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 15:45:57,821 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 15:45:57,821 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:57.821534",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 15:45:57,821 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 15:45:57,821 - workflow - INFO - Workflow completed in 0.90 seconds
+2025-04-24 15:45:57,822 - workflow - INFO - Scheduled execution of workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502 completed
+2025-04-24 15:45:57,822 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:45:57.822845",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 2
+  }
+}
+2025-04-24 15:46:57,827 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #3)
+2025-04-24 15:46:57,828 - workflow - INFO - Executing scheduled workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:46:57,828 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 15:46:57,828 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:46:57,828 - workflow - INFO - Starting workflow execution: d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:46:57,828 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 15:46:57,828 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:46:57,828 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 15:46:57,828 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 15:46:57,828 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 15:46:57,828 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 15:46:57,828 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 15:46:57,828 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 15:46:57,828 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 15:46:57,829 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:46:57,829 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 15:46:57,829 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 15:46:57,829 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:46:57,829 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 15:46:57,829 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:46:57,829 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 15:46:57,829 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 15:46:57,829 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829304",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 15:46:57,829 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 15:46:57,829 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:57.829824",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:46:57,838 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 15:46:57,838 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 15:46:57,838 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 15:46:59,333 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 15:46:59,334 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:59.334833",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 15:46:59,334 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 15:46:59,334 - workflow - INFO - Workflow completed in 1.51 seconds
+2025-04-24 15:46:59,335 - workflow - INFO - Scheduled execution of workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502 completed
+2025-04-24 15:46:59,336 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:46:59.336842",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 3
+  }
+}
+2025-04-24 15:47:45,515 - workflow - INFO - Executing workflow 5bc08328-ca8e-4357-af3e-c7e9f092932f without triggers
+2025-04-24 15:47:45,516 - workflow.FlowConfig - DEBUG - Created node: Input with ID: 1
+2025-04-24 15:47:45,516 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: 2
+2025-04-24 15:47:45,516 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: 3
+2025-04-24 15:47:59,340 - workflow.TimeTriggerNode - INFO - Trigger trigger1 firing (execution #4)
+2025-04-24 15:47:59,340 - workflow - INFO - Executing scheduled workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:47:59,341 - workflow - DEBUG - Original request inputs: {'question': 'What is the capital of France?'}
+2025-04-24 15:47:59,341 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:47:59,341 - workflow - INFO - Starting workflow execution: d9ef474e-6aa1-4e49-8577-e5abfc5f1502
+2025-04-24 15:47:59,341 - workflow - DEBUG - Found Input node with key: question
+2025-04-24 15:47:59,341 - workflow - DEBUG - Input node is looking for key: question
+2025-04-24 15:47:59,341 - workflow - DEBUG - Input data before execution: {'question': 'What is the capital of France?'}
+2025-04-24 15:47:59,341 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode initialized with interval: 1 minutes
+2025-04-24 15:47:59,341 - workflow.FlowConfig - DEBUG - Created node: TimeTrigger with ID: trigger1
+2025-04-24 15:47:59,341 - workflow.FlowConfig - DEBUG - Created node: Input with ID: input1
+2025-04-24 15:47:59,341 - workflow.FlowConfig - DEBUG - Created node: PromptNode with ID: prompt1
+2025-04-24 15:47:59,341 - workflow.FlowConfig - DEBUG - Created node: LLM with ID: llm1
+2025-04-24 15:47:59,341 - workflow.FlowConfig - DEBUG - Executing node: trigger1
+2025-04-24 15:47:59,342 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342289",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:47:59,342 - workflow.TimeTriggerNode - DEBUG - TimeTriggerNode received input_data: {'question': 'What is the capital of France?'}
+2025-04-24 15:47:59,342 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342289",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "output_generated": {
+      "question": "What is the capital of France?"
+    }
+  }
+}
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Node trigger1 execution completed
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Executing node: input1
+2025-04-24 15:47:59,342 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342289",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": {
+    "input_received": {
+      "question": "What is the capital of France?"
+    }
+  },
+  "output": null
+}
+2025-04-24 15:47:59,342 - workflow.InputNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342289",
+  "node_type": "InputNode",
+  "node_id": "input1",
+  "input": null,
+  "output": {
+    "output_generated": "What is the capital of France?"
+  }
+}
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Node input1 execution completed
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Executing node: prompt1
+2025-04-24 15:47:59,342 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342289",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": {
+    "input_received": "What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:47:59,342 - workflow.PromptNode - DEBUG - Using template: Answer this question: {input}
+2025-04-24 15:47:59,342 - workflow.PromptNode - DEBUG - Formatted prompt: Answer this question: What is the capital of France?
+2025-04-24 15:47:59,342 - workflow.PromptNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342812",
+  "node_type": "PromptNode",
+  "node_id": "prompt1",
+  "input": null,
+  "output": {
+    "output_generated": "Answer this question: What is the capital of France?"
+  }
+}
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Node prompt1 execution completed
+2025-04-24 15:47:59,342 - workflow.FlowConfig - DEBUG - Executing node: llm1
+2025-04-24 15:47:59,342 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:47:59.342812",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": {
+    "input_received": "Answer this question: What is the capital of France?"
+  },
+  "output": null
+}
+2025-04-24 15:47:59,354 - workflow.LLMNode - DEBUG - Using API key ending in: ...GgwA
+2025-04-24 15:47:59,354 - workflow.LLMNode - DEBUG - Using direct prompt: Answer this question: What is the capital of France?
+2025-04-24 15:47:59,354 - workflow.LLMNode - DEBUG - Calling OpenAI API...
+2025-04-24 15:48:00,145 - workflow.LLMNode - DEBUG - Generated response: The capital of France is Paris.
+2025-04-24 15:48:00,146 - workflow.LLMNode - DEBUG - {
+  "timestamp": "2025-04-24T15:48:00.145959",
+  "node_type": "LLMNode",
+  "node_id": "llm1",
+  "input": null,
+  "output": {
+    "output_generated": "The capital of France is Paris."
+  }
+}
+2025-04-24 15:48:00,146 - workflow.FlowConfig - DEBUG - Node llm1 execution completed
+2025-04-24 15:48:00,146 - workflow - INFO - Workflow completed in 0.81 seconds
+2025-04-24 15:48:00,147 - workflow - INFO - Scheduled execution of workflow d9ef474e-6aa1-4e49-8577-e5abfc5f1502 completed
+2025-04-24 15:48:00,147 - workflow.TimeTriggerNode - DEBUG - {
+  "timestamp": "2025-04-24T15:48:00.147116",
+  "node_type": "TimeTriggerNode",
+  "node_id": "trigger1",
+  "input": null,
+  "output": {
+    "execution_count": 4
+  }
+}
+2025-04-24 15:48:02,151 - workflow.TimeTriggerNode - DEBUG - Trigger trigger1 task cancelled
