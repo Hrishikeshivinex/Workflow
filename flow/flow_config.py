@@ -6,6 +6,7 @@ from nodes.sql_executor_node import SQLExecutorNode
 from nodes.graph_builder_node import GraphBuilderNode
 from nodes.prompt_node import PromptNode
 from nodes.time_trigger_node import TimeTriggerNode
+from nodes.database_nodes import NODE_REGISTRY
 import logging
 
 logger = logging.getLogger("workflow.FlowConfig")
